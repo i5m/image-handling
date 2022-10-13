@@ -1,0 +1,26 @@
+{
+	"name": "Color shifter",
+	"description": "An extension to help color blind users use the browser",
+	"version": "1.0",
+	"manifest_version": 3,
+	"permissions": [
+		"storage",
+		"activeTab",
+        "scripting",
+        "contentSettings",
+        "declarativeNetRequest",
+        "declarativeNetRequestWithHostAccess"
+
+	],
+	"host_permissions": ["<all_urls>"],
+	"action": {
+		"default_popup": "popup.html",
+		"default_icon": {
+			"16": "./images/light.png",
+			"32": "./images/light.png",
+			"48": "./images/light.png",
+			"128": "./images/light.png"
+		}
+	}
+}
+
