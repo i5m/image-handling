@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="65b69ed1-d080-4c36-b6b7-b9535f010303" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/am/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/ar/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/bg/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/bn/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/ca/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/cs/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/da/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/de/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/el/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/en/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/en_GB/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/es/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/es_419/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/et/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/fa/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/fi/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/fil/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/fr/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/gu/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/he/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/hi/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/hr/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/hu/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/id/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/it/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/ja/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/kn/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/ko/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/lt/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/lv/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/ml/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/mr/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/ms/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/nb/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/nl/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/pl/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/pt_BR/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/pt_PT/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/ro/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/ru/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/sk/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/sl/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/sr/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/sv/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/sw/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/ta/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/te/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/th/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/tr/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/uk/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/vi/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/zh_CN/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/_locales/zh_TW/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/images/light.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/images/lightx128.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/images/lightx16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/images/lightx32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/images/lightx48.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/js/colorShift.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/js/popup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/libs/bootstrap/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/libs/bootstrap/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/libs/bootstrap/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/libs/bootstrap/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/libs/bootstrap/bootstrap.rtl.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/libs/bootstrap/bootstrap.rtl.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/res/cvd-128.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/res/cvd-16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/res/cvd-19.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/res/cvd-38.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/res/cvd-48.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/res/setup.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/background.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/common.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/cvd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/popup.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/popup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/storage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/am/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/ar/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/bg/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/bn/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/ca/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/cs/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/da/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/de/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/el/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/en/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/en_GB/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/es/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/es_419/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/et/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/fa/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/fi/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/fil/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/fr/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/gu/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/he/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/hi/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/hr/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/hu/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/id/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/it/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/ja/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/kn/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/ko/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/lt/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/lv/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/ml/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/mr/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/ms/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/nb/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/nl/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/pl/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/pt_BR/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/pt_PT/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/ro/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/ru/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/sk/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/sl/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/sr/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/sv/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/sw/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/ta/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/te/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/th/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/tr/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/uk/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/vi/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/zh_CN/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_locales/zh_TW/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/light.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/lightx128.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/lightx16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/lightx32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/lightx48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/colorShift.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/popup.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/bootstrap/bootstrap.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/bootstrap/bootstrap.bundle.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/bootstrap/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/bootstrap/bootstrap.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/bootstrap/bootstrap.rtl.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/bootstrap/bootstrap.rtl.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/cvd-128.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/cvd-16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/cvd-19.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/cvd-38.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/cvd-48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/setup.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/background.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cvd.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/popup.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/popup.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/storage.js" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2HbOlc3Rl4I25BA50paWU859tZp" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/akash/Documents/repos/image-handling&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="65b69ed1-d080-4c36-b6b7-b9535f010303" name="Changes" comment="" />
+      <created>1668550468399</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1668550468399</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
