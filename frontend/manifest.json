@@ -8,14 +8,14 @@
          "38": "./images/light.png"
       },
       "default_title": "__MSG_COLOR_ENHANCER_APPNAME__",
-      "default_popup": "src/popup.html"
+      "default_popup": "popup.html"
    },
    "content_scripts": [ {
       "js": [ "src/common.js", "src/cvd.js" ],
       "matches": [ "\u003Call_urls>" ],
       "run_at": "document_start"
    } ],
-  "default_locale": "en",
+  // "default_locale": "en",
    "description": "__MSG_COLOR_ENHANCER_APPDESC__",
    "icons": {
       "16": "./images/light.png",
