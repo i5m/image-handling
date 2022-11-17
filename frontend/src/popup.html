@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" href="../libs/bootstrap/bootstrap.rtl.min.css" />
+		<link rel="stylesheet" href="popup.css" />
 	</head>
 	<body>
 		<header class="d-flex justify-content-center align-items-center">
@@ -10,15 +19,25 @@
 			>
 		</header>
 		<div
+			class="d-flex justify-content-center align-content-center flex-column"
 			style="padding: 10px 0"
 		>
 			<div class="d-flex justify-content-center">
-				<button id="colorShifter" class="btn btn-sm" type="button"> </button>
+				<button id="disable_1" class="btn btn-sm" type="button"> </button>
 			</div>
 		</div>
 
+
+		<!-- spinner object to add while waiting -->
+				<div
+			id="spinner"
+			class="d-flex justify-content-center align-items-center d-none"
+		>
+			<div id="overlay"></div>
+			<div class="spinner-border text-danger position-absolute"></div>
+		</div>
 		<script src="../libs/bootstrap/bootstrap.bundle.min.js"></script>
-		<script src="js/popup.js"></script>
+		<script src="popup.js"></script>
 	</body>
 </html>
 

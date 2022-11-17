@@ -1,29 +1,34 @@
 {
+   "name": "Covid",
+   "description": "A tool to help color vision deficient to see",
+   "version": "1.0",
+   "manifest_version": 3,
+
    "background": {
-      "scripts": [ "src/background.js" ]
+      "service_worker":  "src/background.js" 
    },
-   "browser_action": {
-      "default_icon": {
-         "19": "./images/light.png",
-         "38": "./images/light.png"
-      },
-      "default_title": "__MSG_COLOR_ENHANCER_APPNAME__",
-      "default_popup": "popup.html"
-   },
-   "content_scripts": [ {
-      "js": [ "src/popup.js" ],
-      "matches": [ "\u003Call_urls>" ],
-      "run_at": "document_start"
-   } ],
-  // "default_locale": "en",
-   "description": "__MSG_COLOR_ENHANCER_APPDESC__",
+
+   "permissions": [
+      "storage",
+      "activeTab",
+      "contentSettings",
+      "declarativeNetRequest",
+      "declarativeNetRequestWithHostAccess"
+   ],
+   
    "icons": {
-      "16": "./images/light.png",
-      "48": "./images/light.png",
-      "128": "./images/light.png"
+      "16": "images/light.png",
+      "48": "images/light.png",
+      "128": "images/light.png"
    },
-   "manifest_version": 2,
-   "name": "__MSG_COLOR_ENHANCER_APPNAME__",
-   "permissions": [ "\u003Call_urls>", "tabs" ,"storage" ],
-   "version": "1.13.3"
+   "host_permissions": ["<all_urls>"],
+      "action": {
+      "default_popup": "src/popup.html",
+      "default_icon": {
+         "16": "/images/light.png",
+         "32": "/images/light.png",
+         "48": "/images/light.png",
+         "128": "/images/light.png"
+      }
+   }
 }
