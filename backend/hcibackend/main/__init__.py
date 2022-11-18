@@ -15,7 +15,7 @@ def hello():
 @main.route('/images', methods=['POST'])
 def images():
 
-    data = requests.get_json(force = True)
+    data = request.get_json(force = True)
 
     resp = jsonify(data)
     resp.headers.add('Access-Control-Allow-Origin', '*')
