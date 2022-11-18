@@ -1,4 +1,9 @@
 chrome.storage.sync.set({
-	DISABLE_1: false,
+	PROTANOPIA: false,
+	DEUTERANOPIA: false,
+	TRITANOPIA: false,
+	PROTANOMALY: false,
+	DEUTERANOMALY: false,
+	TRITANOMALY: false
 });
 
