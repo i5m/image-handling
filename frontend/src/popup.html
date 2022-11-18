@@ -1,72 +1,67 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-<!-- TODO(wnwen): Investigate using widgets from ui/webui/resources -->
-<!-- <link rel="stylesheet" type="text/css" href="../res/cvd.css"> -->
-<link rel="stylesheet" type="text/css" href="../res/setup.css">
-<style type="text/css">
-* {
-/*  font-family: Arial, Helvetica, sans-serif;*/
-  font-family: system-ui;
-  font-size: 10pt;
-}
-</style>
-<script type="text/javascript" src="common.js"></script>
-<script type="text/javascript" src="storage.js"></script>
-<script type="text/javascript" src="cvd.js"></script>
-<script type="text/javascript" src="popup.js"></script>
-</head>
-<body>
-  <h2><span i18n-content="color_enhancer_appname"><span></h2>
+	<head>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" href="../libs/bootstrap/bootstrap.rtl.min.css" />
+		<link rel="stylesheet" href="popup.css" />
+	</head>
+	<body>
+		<header class="d-flex justify-content-center align-items-center">
+			<img src="../images/lightx48.png" style="margin-right: 10px" />
+			<span style="font-size: 20px; font-weight: bold"
+				>Color Vision Disorder</span
+			>
+		</header>
+		<div
+			class="d-flex justify-content-center align-content-center flex-column"
+			style="padding: 10px 0"
+		>
+			<div class="d-flex justify-content-center">
+				<button id="disable_1" class="btn btn-sm" type="button"> </button>
+			</div>
+			<div class="d-flex justify-content-center">
+				<button id="disable_2" class="btn btn-sm" type="button"> </button>
+			</div>
+			<div class="d-flex justify-content-center">
+				<button id="disable_3" class="btn btn-sm" type="button"> </button>
+			</div>
+			<div class="d-flex justify-content-center">
+				<button id="disable_4" class="btn btn-sm" type="button"> </button>
+			</div>
+			<div class="d-flex justify-content-center">
+				<input  id="slide1" style="display: none" type="range" min="1" max="100" value="50">
+			</div>
+			<div class="d-flex justify-content-center">
+				<button id="disable_5" class="btn btn-sm" type="button"> </button>
+			</div>
+			<div class="d-flex justify-content-center">
+				<input  id="slide2" style="display: none" type="range" min="1" max="100" value="50">
+			</div>
+			<div class="d-flex justify-content-center">
+				<button id="disable_6" class="btn btn-sm" type="button"> </button>
+			</div>
+			<div class="d-flex justify-content-center" >
+				<input  id="slide3" style="display: none" type="range" min="1" max="100" value="50">
+			</div>
+		</div>
 
-  <table>
-    <tr>
-      <th><span i18n-content="color_enhancer_enable"></span></th>
-      <th>
-        <span i18n-content="color_enhancer_adjustment_factor">
-        </span>
-      </th>
-    </tr>
-    <tr>
-      <td><input id="enable" type="checkbox"></td>
-      <td>
-        <input id="delta" type="range" min=0 max=1.0 step=0.1
-          defaultValue="0.5">
-      </td>
-      <td>
-        <button id="setup" i18n-content="color_enhancer_setup_button"></button>
-      </td>
-    </tr>
-  </table>
-  </div>
 
-  <div id="setup-panel" class="collapsed">
-    <h3><span i18n-content="color_enhancer_setup_heading"></span></h3>
-    <section id="step-1">
-      <div>
-        <span i18n-content="color_enhancer_type_choice">
-        </span>
-      </div>
-      <div class="template swatch">
-        <span>&#x22c6</span>
-      </div>
-      <div id="swatches">
-        <div id="row-highlight" hidden></div>
-        <!-- Auto populated by initialize() -->
-      </div>
-    </section>
-    <section id="step-2">
-      <div>
-        <span i18n-content="color_enhancer_severity">
-        </span>
-        <input id="severity" type="range" min=0 max=1.0 step=0.1 value="0">
-      </div>
-    </section>
-    <div id="setup-button-strip" class="row">
-      <button id="reset" i18n-content="color_enhancer_reset"></button>
-      <button id="ok" i18n-content="color_enhancer_ok"></button>
-      <button id="cancel" i18n-content="color_enhancer_cancel"></button>
-    </div>
-  </div>
-</body>
+		<!-- spinner object to add while waiting -->
+				<div
+			id="spinner"
+			class="d-flex justify-content-center align-items-center d-none"
+		>
+			<div id="overlay"></div>
+			<div class="spinner-border text-danger position-absolute"></div>
+		</div>
+		<script src="../libs/bootstrap/bootstrap.bundle.min.js"></script>
+		<script src="popup.js"></script>
+	</body>
 </html>
+
