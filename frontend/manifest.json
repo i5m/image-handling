@@ -12,10 +12,21 @@
       "storage",
       "activeTab",
       "contentSettings",
+      "scripting",
       "declarativeNetRequest",
       "declarativeNetRequestWithHostAccess"
    ],
-   
+   "host_permissions": ["<all_urls>"],
+   "web_accessible_resources": [
+      {
+         "resources": [
+            "src/content.js",
+            "images/*.png"
+         ],
+         "matches": ["<all_urls>"],
+         "use_dynamic_url": true
+      }
+   ],
    "icons": {
       "16": "images/light.png",
       "48": "images/light.png",
@@ -25,10 +36,10 @@
       "action": {
       "default_popup": "src/popup.html",
       "default_icon": {
-         "16": "/images/light.png",
-         "32": "/images/light.png",
-         "48": "/images/light.png",
-         "128": "/images/light.png"
+         "16": "images/light.png",
+         "32": "images/light.png",
+         "48": "images/light.png",
+         "128": "images/light.png"
       }
    }
 }
