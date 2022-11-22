@@ -11,7 +11,6 @@ window.onload = (event) => {
 	const spinner = document.querySelector("#spinner");
 	const COLOR_CORRECT_TEXT = "Corrected";
 	const NATURAL_COLOR_TEXT = "Correct";
-
 	async function ajax_call_handler(method, endpoint, data) {
 
         const response = await fetch(endpoint, {
@@ -247,9 +246,30 @@ window.onload = (event) => {
 		});
 	}
 
-	function runcolorCorrection2(disable){
-		//insert code here
-		// 
+	async function runcolorCorrection2(disable){
+		const id = "inject_script_image";
+		if (disable) {
+			chrome.scripting.registerContentScripts(
+				[
+					{
+						id,
+						matches: ["<all_urls>"],
+						allFrames: true,
+						runAt: "document_end",
+						js: ["src/content.js"],
+					},
+				],
+				() => {
+					reload();
+				}
+			);
+		console.log("script laoded")
+		} else {
+			chrome.scripting.unregisterContentScripts({ ids: [id] }, () => {
+				reload();
+			});
+		}
+
 	}
 
 	function runcolorCorrection3(disable){
@@ -272,7 +292,18 @@ window.onload = (event) => {
 
 
 
+	async function reload() {
+		const tabId = await getCurrentTabId();
+		chrome.tabs.reload(tabId, { bypassCache: true });
+	}
 
+	async function getCurrentTabId() {
+		let [tab] = await chrome.tabs.query({
+			active: true,
+			currentWindow: true,
+		});
+		return tab.id;
+	}
 	function switchBtnState(btn) {
 		btn.classList.toggle("btn-primary");
 		btn.classList.toggle("btn-danger");
