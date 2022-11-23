@@ -5,48 +5,24 @@ window.onload = (event) => {
 	const disable_4Btn = document.querySelector("#disable_4");
 	const disable_5Btn = document.querySelector("#disable_5");
 	const disable_6Btn = document.querySelector("#disable_6");
-	const slide1 = document.querySelector("#slide1");
-	const slide2 = document.querySelector("#slide2");
-	const slide3 = document.querySelector("#slide3");
+	const slider = document.querySelector("#slider");
 	const spinner = document.querySelector("#spinner");
 	const btnArray = [disable_1Btn,disable_2Btn,disable_3Btn,disable_4Btn,disable_5Btn,disable_6Btn]
 	const COLOR_CORRECT_TEXT = "Corrected";
 	const NATURAL_COLOR_TEXT = "Correct";
-	async function ajax_call_handler(method, endpoint, data) {
 
-        const response = await fetch(endpoint, {
-            method: method,
-            mode: 'cors',
-            cache: 'no-cache',
-            credentials: 'same-origin',
-            redirect: 'follow',
-            referrerPolicy: 'no-referrer',
-            body: data
-        }).catch(error => {
-
-            return {
-                result: false
-            }
-
-        });
-
-        try {
-            return response.json();
-        } catch(err) {
-            return response;
-        }
-
-    }
 
 	chrome.storage.sync.get("PROTANOPIA", ({ PROTANOPIA }) => {
 		if (PROTANOPIA) {
 			disable_1Btn.textContent = COLOR_CORRECT_TEXT+" for Protanopia";
 			disable_1Btn.classList.add("btn-danger");
 			disable_1Btn.classList.remove("btn-primary");
+			disableallExcept(disable_1Btn);
 		} else {
 			disable_1Btn.textContent = NATURAL_COLOR_TEXT+" for Protanopia";
 			disable_1Btn.classList.add("btn-primary");
 			disable_1Btn.classList.remove("btn-danger");
+			enableall();
 		}
 	});
 
@@ -55,10 +31,12 @@ window.onload = (event) => {
 			disable_2Btn.textContent = COLOR_CORRECT_TEXT+" for Deuteranopia";
 			disable_2Btn.classList.add("btn-danger");
 			disable_2Btn.classList.remove("btn-primary");
+			disableallExcept(disable_2Btn);
 		} else {
 			disable_2Btn.textContent = NATURAL_COLOR_TEXT+" for Deuteranopia";
 			disable_2Btn.classList.add("btn-primary");
 			disable_2Btn.classList.remove("btn-danger");
+			enableall();
 		}
 	});
 
@@ -67,10 +45,12 @@ window.onload = (event) => {
 			disable_3Btn.textContent = COLOR_CORRECT_TEXT+" for Tritanopia";
 			disable_3Btn.classList.add("btn-danger");
 			disable_3Btn.classList.remove("btn-primary");
+			disableallExcept(disable_3Btn);
 		} else {
 			disable_3Btn.textContent = NATURAL_COLOR_TEXT+" for Tritanopia";
 			disable_3Btn.classList.add("btn-primary");
 			disable_3Btn.classList.remove("btn-danger");
+			enableall();
 		}
 	});
 
@@ -79,10 +59,12 @@ window.onload = (event) => {
 			disable_4Btn.textContent = COLOR_CORRECT_TEXT+" for Protanomaly";
 			disable_4Btn.classList.add("btn-danger");
 			disable_4Btn.classList.remove("btn-primary");
+			disableallExcept(disable_4Btn);
 		} else {
 			disable_4Btn.textContent = NATURAL_COLOR_TEXT+" for Protanomaly";
 			disable_4Btn.classList.add("btn-primary");
 			disable_4Btn.classList.remove("btn-danger");
+			enableall();
 		}
 	});
 
@@ -91,10 +73,12 @@ window.onload = (event) => {
 			disable_5Btn.textContent = COLOR_CORRECT_TEXT+" for Deuteranomaly";
 			disable_5Btn.classList.add("btn-danger");
 			disable_5Btn.classList.remove("btn-primary");
+			disableallExcept(disable_5Btn);
 		} else {
 			disable_5Btn.textContent = NATURAL_COLOR_TEXT+" for Deuteranomaly";
 			disable_5Btn.classList.add("btn-primary");
 			disable_5Btn.classList.remove("btn-danger");
+			enableall();
 		}
 	});
 
@@ -103,10 +87,12 @@ window.onload = (event) => {
 			disable_6Btn.textContent = COLOR_CORRECT_TEXT+" for Tritanomaly";
 			disable_6Btn.classList.add("btn-danger");
 			disable_6Btn.classList.remove("btn-primary");
+			disableallExcept(disable_6Btn);
 		} else {
 			disable_6Btn.textContent = NATURAL_COLOR_TEXT+" for Tritanomaly";
 			disable_6Btn.classList.add("btn-primary");
 			disable_6Btn.classList.remove("btn-danger");
+			enableall();
 		}
 	});
 
@@ -118,8 +104,10 @@ window.onload = (event) => {
 			chrome.storage.sync.set({ PROTANOPIA: disable }, () => {
 				if (disable) {
 					disable_1Btn.textContent = COLOR_CORRECT_TEXT+" for Protanopia";
+					disableallExcept(disable_1Btn);
 				} else {
 					disable_1Btn.textContent = NATURAL_COLOR_TEXT+" for Protanopia";
+					enableall()
 				}
 				switchBtnState(disable_1Btn);
 				spinner.classList.add("d-none");
@@ -157,8 +145,10 @@ window.onload = (event) => {
 			chrome.storage.sync.set({ TRITANOPIA: disable }, () => {
 				if (disable) {
 					disable_3Btn.textContent = COLOR_CORRECT_TEXT+" for Tritanopia";
+					disableallExcept(disable_3Btn);
 				} else {
 					disable_3Btn.textContent = NATURAL_COLOR_TEXT+" for Tritanopia";
+					enableall();
 				}
 				switchBtnState(disable_3Btn);
 				spinner.classList.add("d-none");
@@ -175,10 +165,12 @@ window.onload = (event) => {
 			chrome.storage.sync.set({ PROTANOMALY: disable }, () => {
 				if (disable) {
 					disable_4Btn.textContent = COLOR_CORRECT_TEXT+" for Protanomaly";
-					slide1.style.display ="block";
+					disableallExcept(disable_4Btn);
+					slider.style.display ="block";
 				} else {
 					disable_4Btn.textContent = NATURAL_COLOR_TEXT+" for Protanomaly";
-					slide1.style.display ="none";
+					slider.style.display ="none";
+					enableall();
 				}
 				switchBtnState(disable_4Btn);
 				spinner.classList.add("d-none");
@@ -194,10 +186,12 @@ window.onload = (event) => {
 			chrome.storage.sync.set({ DEUTERANOMALY: disable }, () => {
 				if (disable) {
 					disable_5Btn.textContent = COLOR_CORRECT_TEXT+" for Deuteranomaly";
-					slide2.style.display ="block";
+					disableallExcept(disable_5Btn);
+					slider.style.display ="block";
 				} else {
 					disable_5Btn.textContent = NATURAL_COLOR_TEXT+" for Deuteranomaly";
-					slide2.style.display ="none";
+					slider.style.display ="none";
+					enableall();
 				}
 				switchBtnState(disable_5Btn);
 				spinner.classList.add("d-none");
@@ -207,49 +201,50 @@ window.onload = (event) => {
 	});
 
 	disable_6Btn.addEventListener("click", (event) => {
-	spinner.classList.remove("d-none");
-	chrome.storage.sync.get("TRITANOMALY", ({ TRITANOMALY }) => {
-			const disable = !TRITANOMALY;
-			chrome.storage.sync.set({ TRITANOMALY: disable }, () => {
-				if (disable) {
-					disable_6Btn.textContent = COLOR_CORRECT_TEXT+" for Tritanomaly";
-					slide3.style.display ="block";
-				} else {
-					disable_6Btn.textContent = NATURAL_COLOR_TEXT+" for Tritanomaly";
-					slide3.style.display ="none";
-				}
-				switchBtnState(disable_6Btn);
-				spinner.classList.add("d-none");
-				runcolorCorrection6(disable);
-			});
-	});
-	});
-
-
-	function runcolorCorrection1(disable){
-
-
-		//insert code here
-		// 
-		// 
-		// 
-		// 
-		// 
-		// 
-		// 
-		// 
-		// 
-		// 
-		// 
-		// 
-
-		var xyz = JSON.stringify({ x: 5, y: 6 });
-
-		ajax_call_handler("POST", "http://localhost:7000/images", xyz).then(resp => {
-			alert(resp.x);
+		spinner.classList.remove("d-none");
+		chrome.storage.sync.get("TRITANOMALY", ({ TRITANOMALY }) => {
+				const disable = !TRITANOMALY;
+				chrome.storage.sync.set({ TRITANOMALY: disable }, () => {
+					if (disable) {
+						disable_6Btn.textContent = COLOR_CORRECT_TEXT+" for Tritanomaly";
+						disableallExcept(disable_6Btn);
+						slider.style.display ="block";
+					} else {
+						disable_6Btn.textContent = NATURAL_COLOR_TEXT+" for Tritanomaly";
+						slider.style.display ="none";
+						enableall();
+					}
+					switchBtnState(disable_6Btn);
+					spinner.classList.add("d-none");
+					runcolorCorrection6(disable);
+				});
 		});
-	}
+	});
 
+
+	async function runcolorCorrection1(disable){
+		const id = "inject_script_image";
+		if (disable) {
+			chrome.scripting.registerContentScripts(
+				[
+					{
+						id,
+						matches: ["<all_urls>"],
+						allFrames: true,
+						runAt: "document_end",
+						js: ["src/content1.js"],
+					},
+				],
+				() => {
+					reload();
+				}
+			);
+		} else {
+			chrome.scripting.unregisterContentScripts({ ids: [id] }, () => {
+				reload();
+			});
+		}
+	}
 	async function runcolorCorrection2(disable){
 		const id = "inject_script_image";
 		if (disable) {
@@ -260,20 +255,111 @@ window.onload = (event) => {
 						matches: ["<all_urls>"],
 						allFrames: true,
 						runAt: "document_end",
-						js: ["src/content.js"],
+						js: ["src/content2.js"],
 					},
 				],
 				() => {
 					reload();
 				}
 			);
-		console.log("script laoded")
 		} else {
 			chrome.scripting.unregisterContentScripts({ ids: [id] }, () => {
 				reload();
 			});
 		}
 
+	}
+	async function runcolorCorrection3(disable){
+		const id = "inject_script_image";
+		if (disable) {
+			chrome.scripting.registerContentScripts(
+				[
+					{
+						id,
+						matches: ["<all_urls>"],
+						allFrames: true,
+						runAt: "document_end",
+						js: ["src/content3.js"],
+					},
+				],
+				() => {
+					reload();
+				}
+			);
+		} else {
+			chrome.scripting.unregisterContentScripts({ ids: [id] }, () => {
+				reload();
+			});
+		}
+	}
+	async function runcolorCorrection4(disable){
+		const id = "inject_script_image";
+		if (disable) {
+			chrome.scripting.registerContentScripts(
+				[
+					{
+						id,
+						matches: ["<all_urls>"],
+						allFrames: true,
+						runAt: "document_end",
+						js: ["src/content4.js"],
+					},
+				],
+				() => {
+					reload();
+				}
+			);
+		} else {
+			chrome.scripting.unregisterContentScripts({ ids: [id] }, () => {
+				reload();
+			});
+		}
+	}
+	async function runcolorCorrection5(disable){
+		const id = "inject_script_image";
+		if (disable) {
+			chrome.scripting.registerContentScripts(
+				[
+					{
+						id,
+						matches: ["<all_urls>"],
+						allFrames: true,
+						runAt: "document_end",
+						js: ["src/content5.js"],
+					},
+				],
+				() => {
+					reload();
+				}
+			);
+		} else {
+			chrome.scripting.unregisterContentScripts({ ids: [id] }, () => {
+				reload();
+			});
+		}
+	}
+	async function runcolorCorrection6(disable){
+		const id = "inject_script_image";
+		if (disable) {
+			chrome.scripting.registerContentScripts(
+				[
+					{
+						id,
+						matches: ["<all_urls>"],
+						allFrames: true,
+						runAt: "document_end",
+						js: ["src/content6.js"],
+					},
+				],
+				() => {
+					reload();
+				}
+			);
+		} else {
+			chrome.scripting.unregisterContentScripts({ ids: [id] }, () => {
+				reload();
+			});
+		}
 	}
 
 	function disableallExcept(btn){
@@ -285,29 +371,9 @@ window.onload = (event) => {
 	}
 	function enableall(){
 		for(i=0;i<btnArray.length;i++){
-			if(btnArray[i]!=btn){
-				btnArray[i].disabled = null
-			}
+			btnArray[i].disabled = null
 		}
 	}
-	function runcolorCorrection3(disable){
-		//insert code here
-		// 
-	}
-
-	function runcolorCorrection4(disable){
-		//insert code here
-		// 
-	}
-	function runcolorCorrection5(disable){
-		//insert code here
-		// 
-	}
-	function runcolorCorrection6(disable){
-		//insert code here
-		// 
-	}
-
 
 
 	async function reload() {

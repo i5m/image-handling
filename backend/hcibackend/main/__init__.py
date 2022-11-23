@@ -26,12 +26,21 @@ def images():
 
     data = request.get_json(force = True)
 
-    print(data)
+    print(data["imageArray"])
 
-    type_ = data["type_"]
-    images = data["images"]
+    type_ = int(data["type_"])
+    images = data["imageArray"]
 
-    ans = {}
+    print(type_)
+    print(type(type_))
+
+    if images is None or type_ is None:
+        ans = {
+            "a" : "Apple",
+            "b" : "Banana",
+        }
+    else:
+        ans ={}
 
     for i in images:
 
