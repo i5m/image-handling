@@ -9,7 +9,7 @@ setTimeout(() => {
 		imgElt.src = url;
 
 	}
-	var xyz = JSON.parse(JSON.stringify({ imageArray: imageArr,type_:1}));
+	var xyz = JSON.parse(JSON.stringify({ imageArray: imageArr,type_:"deut",severity:1}));
 	console.log(xyz)
 	postData("http://localhost:7000/images",xyz)
 }, 1000);
