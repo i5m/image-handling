@@ -26,68 +26,58 @@ def images():
 
     data = request.get_json(force = True)
 
-    print(data["imageArray"])
-
-    type_ = int(data["type_"])
+    type_ = data["type_"]
     images = data["imageArray"]
 
-    print(type_)
-    print(type(type_))
-
-    if images is None or type_ is None:
-        ans = {
-            "a" : "Apple",
-            "b" : "Banana",
-        }
-    else:
-        ans ={}
+    ans = {}
 
     for i in images:
 
-        img = color_correction(images[i], type_, 1)
+        cvd_rgba = color_correction(i, type_, 1)
         
         imBytes = cvd_rgba.tobytes()
         imBase64 = base64.b64encode(imBytes)
-        ans[i] = imBase64
+        ans[i] = imBase64.decode('utf-8')
 
     resp = jsonify(ans)
     resp.headers.add('Access-Control-Allow-Origin', '*')
     return resp
 
 
+def global_func():
 
-rgb_lms_mat=np.array([[17.8824,43.5161,4.11935], [3.45565, 27.1554, 3.86714], [0.0299566, 0.184309,1.46709]])
-prot_mat=np.array([[0,2.02344,-2.52581], [0,1,0], [0,0,1]])
-deut_mat=np.array([[1,0,0], [0.49421,0,1.24827], [0,0,1]])
-trit_mat=np.array([[1,0,0], [0,1,0], [-0.395913,0.801109,0]])
-lms_rgb_mat=np.array([[0.0809444479,-0.130504409,0.116721066], [0.113614708,-0.0102485335,0.0540193266], [-0.000365296938,-0.00412161469,0.693511405]])
+    prot_mat = np.array([[0,2.02344,-2.52581], [0,1,0], [0,0,1]])
+    deut_mat = np.array([[1,0,0], [0.49421,0,1.24827], [0,0,1]])
+    trit_mat = np.array([[1,0,0], [0,1,0], [-0.395913,0.801109,0]])
 
-prot_error_mat=np.array([[0,0,0], [0.7,1,0], [0.7,0,1]])
-deut_error_mat=np.array([[1,0.7,0], [0,0,0], [0,0.7,1]])
-trit_error_mat=np.array([[1,0,0.7], [0,1,0.7], [0,0,0]])
+    prot_error_mat = np.array([[0,0,0], [0.7,1,0], [0.7,0,1]])
+    deut_error_mat = np.array([[1,0.7,0], [0,0,0], [0,0.7,1]])
+    trit_error_mat = np.array([[1,0,0.7], [0,1,0.7], [0,0,0]])
 
-extent = 1
+    rgb_lms_mat = np.array([[17.8824,43.5161,4.11935], [3.45565, 27.1554, 3.86714], [0.0299566, 0.184309,1.46709]])
+    lms_rgb_mat = np.array([[0.0809444479,-0.130504409,0.116721066], [0.113614708,-0.0102485335,0.0540193266], [-0.000365296938,-0.00412161469,0.693511405]])
 
-sdim = 0
+    cvd_dict = {
+        'prot': (prot_mat, prot_error_mat),
+        'deut': (deut_mat, deut_error_mat),
+        'trit': (trit_mat, trit_error_mat)
+    }
 
-cvd_dict = {
-    'prot': (prot_mat, prot_error_mat),
-    'deut': (deut_mat, deut_error_mat),
-    'trit': (trit_mat, trit_error_mat)
-}
+    return cvd_dict, rgb_lms_mat, lms_rgb_mat
 
 def get_source_img(url):
-    # get and convert img to RGB space
-    global sdim
+
     source = np.array(Image.open(BytesIO(requests.get(url).content)))
     
     img = cv2.cvtColor(source, cv2.COLOR_RGBA2RGB)
-    img=img.astype(np.float32)
-    if(sum(sum(sum(img>1))==sdim[0]**2)>0):
-        img/=255
-    sdim= img.shape
+    img = img.astype(np.float32)
+
+    # if(sum(sum(sum(img>1))==sdim[0]**2)>0):
+    #     img/=255
+
+    sdim = img.shape
     
-    return img, source
+    return img, source, sdim
 
 
 def return_rgb_channels(img):
@@ -101,46 +91,53 @@ def return_channel_vars(mat, r,g,b):
     return l,m,s
 
 
-def rgb_to_lms(source):
+def rgb_to_lms(source, sdim):
+
+    _, rgb_lms_mat, _ = global_func()
+
     source_lms=np.zeros(sdim)
     r,g,b= return_rgb_channels(source)
     l,m,s= return_channel_vars(rgb_lms_mat,r,g,b)
     source_lms[:,:,0]=l
     source_lms[:,:,1]=m
     source_lms[:,:,2]=s
+
     return source_lms
 
 
 def color_correction(url, cvd_type, ext):
 
-    global extent
+    cvd_dict, _, lms_rgb_mat = global_func()
 
-    extent=ext
-    source, source_rgba= get_source_img(url)
-    source_lms= rgb_to_lms(source)
+    source, source_rgba, sdim = get_source_img(url)
+    source_lms = rgb_to_lms(source, sdim)
     
     cvd_lms=np.zeros(sdim)
     cvd_sim=np.zeros(sdim)
     cvd_map=np.zeros(sdim)
     cvd_final=np.zeros(sdim)
     
-    r,g,b= return_rgb_channels(source_lms)
-    l,m,s= return_channel_vars(cvd_dict[cvd_type][0],r,g,b)
-    cvd_lms[:,:,0]=l
-    cvd_lms[:,:,1]=m
-    cvd_lms[:,:,2]=s
+    r, g, b = return_rgb_channels(source_lms)
+    l, m, s = return_channel_vars(cvd_dict[cvd_type][0], r, g, b)
 
-    r,g,b= return_rgb_channels(cvd_lms)
-    l,m,s= return_channel_vars(lms_rgb_mat, r,g,b)
+    cvd_lms[:,:,0] = l
+    cvd_lms[:,:,1] = m
+    cvd_lms[:,:,2] = s
+
+    r, g, b = return_rgb_channels(cvd_lms)
+    l, m, s = return_channel_vars(lms_rgb_mat, r,g,b)
+
     cvd_sim[:,:,0]=l
     cvd_sim[:,:,1]=m
     cvd_sim[:,:,2]=s
-    cvd_sim*= extent
+    cvd_sim *= ext
 
     cvd_dr=source[:,:,0]-cvd_sim[:,:,0]
     cvd_dg=source[:,:,1]-cvd_sim[:,:,1]
     cvd_db=source[:,:,2]-cvd_sim[:,:,2]
-    l,m,s= return_channel_vars(cvd_dict[cdv_type][1], cvd_dr, cvd_dg, cvd_db)
+
+    l, m, s = return_channel_vars(cvd_dict[cvd_type][1], cvd_dr, cvd_dg, cvd_db)
+
     cvd_map[:,:,0]=l
     cvd_map[:,:,1]=m
     cvd_map[:,:,2]=s
@@ -151,7 +148,10 @@ def color_correction(url, cvd_type, ext):
     cvd_final/= np.amax(cvd_final)
     cvd_final*= 255
     cvd_final.astype(np.uint8)
-    cvd_rgba =np.concatenate((pcvd_final, source_rgba[:,:,3].reshape((sdim[0],sdim[1],1))) ,axis=2)
+
+    # print(cvd_final.shape, source_rgba.shape, source_rgba[:,:,2].shape)
+    
+    cvd_rgba = np.concatenate((cvd_final, source_rgba[:,:,2].reshape((sdim[0],sdim[1],1))), axis=2)
 
     return cvd_rgba
     
