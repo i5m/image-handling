@@ -9,6 +9,7 @@ window.onload = (event) => {
 	const slide2 = document.querySelector("#slide2");
 	const slide3 = document.querySelector("#slide3");
 	const spinner = document.querySelector("#spinner");
+	const btnArray = [disable_1Btn,disable_2Btn,disable_3Btn,disable_4Btn,disable_5Btn,disable_6Btn]
 	const COLOR_CORRECT_TEXT = "Corrected";
 	const NATURAL_COLOR_TEXT = "Correct";
 	async function ajax_call_handler(method, endpoint, data) {
@@ -131,13 +132,16 @@ window.onload = (event) => {
 
 	disable_2Btn.addEventListener("click", (event) => {
 	spinner.classList.remove("d-none");
+
 	chrome.storage.sync.get("DEUTERANOPIA", ({ DEUTERANOPIA }) => {
 			const disable = !DEUTERANOPIA;
 			chrome.storage.sync.set({ DEUTERANOPIA: disable }, () => {
 				if (disable) {
 					disable_2Btn.textContent = COLOR_CORRECT_TEXT+" for Deuteranopia";
+					disableallExcept(disable_2Btn);
 				} else {
 					disable_2Btn.textContent = NATURAL_COLOR_TEXT+" for Deuteranopia";
+					enableall();
 				}
 				switchBtnState(disable_2Btn);
 				spinner.classList.add("d-none");
@@ -272,6 +276,20 @@ window.onload = (event) => {
 
 	}
 
+	function disableallExcept(btn){
+		for(i=0;i<btnArray.length;i++){
+			if(btnArray[i]!=btn){
+				btnArray[i].disabled = "disabled"
+			}
+		}
+	}
+	function enableall(){
+		for(i=0;i<btnArray.length;i++){
+			if(btnArray[i]!=btn){
+				btnArray[i].disabled = null
+			}
+		}
+	}
 	function runcolorCorrection3(disable){
 		//insert code here
 		// 
