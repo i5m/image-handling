@@ -28,7 +28,7 @@ def images():
 
     type_ = request.args.get("type_")
     image_url = request.args.get("image_url")
-    extent = request.args.get("extent")
+    extent = int(request.args.get("extent"))
 
     cvd_rgba = color_correction(image_url, type_, extent)
 
@@ -72,6 +72,7 @@ def global_func():
     }
 
     return cvd_dict, rgb_lms_mat, lms_rgb_mat
+
 
 def get_source_img(url):
 
