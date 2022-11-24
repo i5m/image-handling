@@ -1,4 +1,4 @@
-from flask import request, Blueprint, render_template, current_app, jsonify
+from flask import request, Blueprint, render_template, current_app, jsonify, send_file
 import cv2
 import matplotlib.pyplot as plt
 import os
@@ -21,27 +21,35 @@ def hello():
     return resp
 
 
-@main.route('/images', methods=['POST'])
+@main.route('/images', methods=['GET'])
 def images():
 
-    data = request.get_json(force = True)
+    # data = request.get_json(force = True)
 
-    type_ = data["type_"]
-    images = data["imageArray"]
+    type_ = request.args.get("type_")
+    image_url = request.args.get("image_url")
+    extent = request.args.get("extent")
 
-    ans = {}
+    cvd_rgba = color_correction(image_url, type_, extent)
 
-    for i in images:
+    img = Image.fromarray(cvd_rgba.astype('uint8'))
+    file_object = BytesIO()
+    img.save(file_object, 'PNG')
 
-        cvd_rgba = color_correction(i, type_, 1)
-        
-        imBytes = cvd_rgba.tobytes()
-        imBase64 = base64.b64encode(imBytes)
-        ans[i] = imBase64.decode('utf-8')
+    # encoded_img = base64.encodebytes(file_object.getvalue()).decode('ascii')
+    # ans[i] = encoded_img
 
-    resp = jsonify(ans)
-    resp.headers.add('Access-Control-Allow-Origin', '*')
-    return resp
+    file_object.seek(0)
+
+    return send_file(file_object, mimetype='image/PNG')
+
+    # imBytes = cvd_rgba.tobytes()
+    # imBase64 = base64.b64encode(imBytes)
+    # ans[i] = imBase64.decode('utf-8')
+
+    # resp = jsonify(ans)
+    # resp.headers.add('Access-Control-Allow-Origin', '*')
+    # return resp
 
 
 def global_func():
