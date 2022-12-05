@@ -18,6 +18,16 @@
 		{
 			"resources": [
 				"src/content.js",
+				"src/protanomaly_30_color_correcter.js",
+				"src/protanomaly_60_color_correcter.js",
+				"src/protanopia_100_color_correcter.js",
+				"src/deuteranomaly_30_color_correcter.js",
+				"src/deuteranomaly_60_color_correcter.js",
+				"src/deuteranopia_100_color_correcter.js",
+				"src/tritanomaly_30_color_correcter.js",
+				"src/tritanomaly_60_color_correcter.js",
+				"src/tritanopia_100_color_correcter.js.js",
+
 				"images/*.png"
 			],
 			"matches": [

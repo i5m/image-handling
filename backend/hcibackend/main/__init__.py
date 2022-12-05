@@ -28,7 +28,7 @@ def images():
 
     type_ = request.args.get("type_")
     image_url = request.args.get("image_url")
-    extent = int(request.args.get("extent"))
+    extent = float(request.args.get("extent"))
 
     cvd_rgba = color_correction(image_url, type_, extent)
 

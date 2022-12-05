@@ -9,7 +9,7 @@ window.onload = (event) => {
 
     const slider_box = document.getElementById("slider-box");
     const extent_slider = document.getElementById("extent-slider");
-
+    var disable = false;
 	const btn_arr = [protanopia_btn, deuteranopia_btn, tritanopia_btn, protanomaly_btn, deuteranomaly_btn, tritanomaly_btn];
 
 	chrome.storage.sync.get("PROTANOPIA", ({ PROTANOPIA }) => {
@@ -48,7 +48,7 @@ window.onload = (event) => {
             button_state_handler();
             protanomaly_btn.classList.add("btn-dark");
             protanomaly_btn.classList.remove("btn-outline-secondary");
-            color_correction('protanomaly', extent_slider.value, disable);
+            color_correction('protanomaly', extent_slider.value*100	, disable);
         }
 	});
 
@@ -58,7 +58,7 @@ window.onload = (event) => {
             button_state_handler();
             deuteranomaly_btn.classList.add("btn-dark");
             deuteranomaly_btn.classList.remove("btn-outline-secondary");
-            color_correction('deuteranomaly', extent_slider.value, disable);
+            color_correction('deuteranomaly', extent_slider.value*100, disable);
 		}
 	});
 
@@ -68,7 +68,7 @@ window.onload = (event) => {
             button_state_handler();
             tritanomaly_btn.classList.add("btn-dark");
             tritanomaly_btn.classList.remove("btn-outline-secondary");
-            color_correction('tritanomaly', extent_slider.value, disable);
+            color_correction('tritanomaly', extent_slider.value*100, disable);
 		}
 	});
     
@@ -127,7 +127,7 @@ window.onload = (event) => {
                 button_state_handler();
                 protanomaly_btn.classList.add("btn-dark");
                 protanomaly_btn.classList.remove("btn-outline-secondary");
-                color_correction('protanomaly', extent_slider.value, disable);
+                color_correction('protanomaly', extent_slider.value*100, disable);
 			});
 		});
 
@@ -142,7 +142,7 @@ window.onload = (event) => {
                 button_state_handler();
                 deuteranomaly_btn.classList.add("btn-dark");
                 deuteranomaly_btn.classList.remove("btn-outline-secondary"); 
-                color_correction('deuteranomaly', extent_slider.value, disable);
+                color_correction('deuteranomaly', extent_slider.value*100, disable);
 			});
         });
 
@@ -157,7 +157,7 @@ window.onload = (event) => {
                 button_state_handler();
                 tritanomaly_btn.classList.add("btn-dark");
                 tritanomaly_btn.classList.remove("btn-outline-secondary"); 
-                color_correction('tritanopia', extent_slider.value, disable);
+                color_correction('tritanomaly', extent_slider.value*100, disable);
 			});
         });
 
@@ -169,6 +169,8 @@ window.onload = (event) => {
 
 
     async function color_correction(diff, val, dis) {
+
+    	console.log(val)
 
 		const id = "inject_script_image";
 
