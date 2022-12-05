@@ -81,10 +81,10 @@ def get_source_img(url):
     img = cv2.cvtColor(source, cv2.COLOR_RGBA2RGB)
     img = img.astype(np.float32)
 
-    # if(sum(sum(sum(img>1))==sdim[0]**2)>0):
-    #     img/=255
-
     sdim = img.shape
+
+    if (sum(sum(sum(img>1))==(sdim[0]*sdim[1]*sdim[2]))>0):
+        img /= 255
     
     return img, source, sdim
 
@@ -119,6 +119,7 @@ def color_correction(url, cvd_type, ext):
     cvd_dict, _, lms_rgb_mat = global_func()
 
     source, source_rgba, sdim = get_source_img(url)
+    print("Source values: ", source_rgba.shape)
     source_lms = rgb_to_lms(source, sdim)
     
     cvd_lms=np.zeros(sdim)
@@ -160,8 +161,10 @@ def color_correction(url, cvd_type, ext):
 
     # print(cvd_final.shape, source_rgba.shape, source_rgba[:,:,2].shape)
     
-    cvd_rgba = np.concatenate((cvd_final, source_rgba[:,:,2].reshape((sdim[0],sdim[1],1))), axis=2)
-
-    return cvd_rgba
+    if(source_rgba.shape[2]==4):
+        cvd_rgba = np.concatenate((cvd_final, source_rgba[:,:,3].reshape((sdim[0],sdim[1],1))), axis=2)
+        return cvd_rgba
+    else:
+        return cvd_final
     
     
